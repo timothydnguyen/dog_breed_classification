@@ -17,6 +17,7 @@ sqlCtx = SQLContext(sc)
 
 img_dir = "/Users/macbook/Desktop/PSTAT194/spotted_dogfish/data_gen/"
 
+
 #Read images and Create training & test DataFrames for transfer learning
 affenpin = readImages(img_dir + "train/affenpinscher").withColumn("label", lit(0))
 afghan_hound = readImages(img_dir + "train/afghan_hound").withColumn("label", lit(1))
@@ -28,6 +29,20 @@ african_hunt = readImages(img_dir + "train/african_hunting_dog").withColumn("lab
 # ss = pd.read_csv(img_dir + "sample_submission.csv")
 
 #labels_df = sqlCtx.createDataFrame(labels_df)
+
+def get_all_data(set: str):
+    """
+    Reads all data from the "set" directory and creates the correct labels.
+    """
+    img_dir = '../data/data_gen/'+set
+
+    for
+
+
+
+affenpin = ImageSchema.readImages(img_dir + "train/affenpinscher").withColumn("label", lit(0))
+afghan_hound = ImageSchema.readImages(img_dir + "train/afghan_hound").withColumn("label", lit(1))
+african_hunt = ImageSchema.readImages(img_dir + "train/african_hunting_dog").withColumn("label", lit(2))
 
 affenpin_test, affenpin_train = affenpin.randomSplit([0.1, 0.9], seed = 420)
 afghan_test, afghan_train = afghan_hound.randomSplit([0.1, 0.9], seed = 420)
